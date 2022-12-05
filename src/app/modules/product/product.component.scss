@@ -5,6 +5,7 @@
 }
 .productImage{
     margin-right: 10px;
+    width: 200px;
 }
 .productPrice{
     font-size: 30px;
@@ -17,4 +18,13 @@
 }
 mat-card{
     margin-bottom: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #777;
 }
