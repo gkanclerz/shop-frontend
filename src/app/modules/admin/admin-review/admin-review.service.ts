@@ -1,0 +1,25 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Page } from '../../common/model/page';
+import { AdminReview } from './model/adminReview';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminReviewService {
+
+  constructor(private http : HttpClient) { }
+
+  getReviews(page: number, size: number) : Observable<Page<AdminReview>> {
+    return this.http.get<Page<AdminReview>>(`/api/admin/reviews?page=${page}&size=${size}`)
+  }
+
+  deleteReview(id : number) : Observable<void>{
+    return this.http.delete<void>(`/api/admin/reviews/`+id);
+  }
+
+  moderateReview(id : number){
+    return this.http.put<void>("/api/admin/reviews/" + id +"/moderate",'');
+  }
+}
