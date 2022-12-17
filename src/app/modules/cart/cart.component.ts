@@ -6,6 +6,7 @@ import { CartIconService } from '../common/service/cart-icon.service';
 import { CartService } from './cart.service';
 import { CartSummary } from './model/cartSummary';
 import { CartSummaryItem } from './model/cartSummaryItem';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,8 @@ export class CartComponent implements OnInit {
 
   formGroup! : FormGroup;
   summary!: CartSummary;
+  private isProductAdded = false;
+
 
   constructor(
     private route : ActivatedRoute,
@@ -23,7 +26,8 @@ export class CartComponent implements OnInit {
     private cookieService : CookieService,
     private router : Router,
     private formBuilder : FormBuilder,
-    private cartIconService : CartIconService
+    private cartIconService : CartIconService,
+    private location : Location
 
     ) { }
 
@@ -31,8 +35,11 @@ export class CartComponent implements OnInit {
     let id = Number(this.route.snapshot.queryParams['productId']);
     if(id > 0){
       this.addToCart(id);
+      this.isProductAdded = true;
     } else{
       this.getCart()
+      this.isProductAdded = false;
+
     }
 
     this.formGroup = this.formBuilder.group({
@@ -89,6 +96,10 @@ export class CartComponent implements OnInit {
       this.summary = summary;
       this.formGroup.get("items")?.setValue(summary.items);
     })
+  }
+
+  back(){
+    this.location.historyGo(this.isProductAdded ? -2 : -1);
   }
   mapToRequestListDto(): any[] {
     let items: Array<CartSummaryItem> = this.formGroup.get("items")?.value;
