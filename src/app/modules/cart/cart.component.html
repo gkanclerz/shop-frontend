@@ -39,6 +39,9 @@
     <div>
         <button mat-icon-button color="primary" (click)="back()">Powrót do zakupów</button>
     </div>
+    <div fxLayoutAlign="end">
+        <button type="button" class="orderButton" mat-flat-button color="accent" routerLink="/order">Zamawiam</button>
+    </div>
 </form>
 <div *ngIf="!summary?.items?.length">
     Koszyk jest pusty
