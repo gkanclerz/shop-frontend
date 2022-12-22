@@ -7,6 +7,7 @@ import { AdminCategoryAddComponent } from './modules/admin/admin-category/admin-
 import { AdminCategoryUpdateComponent } from './modules/admin/admin-category/admin-category-update/admin-category-update.component';
 import { AdminCategoryComponent } from './modules/admin/admin-category/admin-category.component';
 import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-order-export/admin-order-export.component';
+import { AdminOrderStatsComponent } from './modules/admin/admin-order/admin-order-stats/admin-order-stats.component';
 import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
 import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.component';
 import { AdminProductAddComponent } from './modules/admin/admin-product/admin-product-add/admin-product-add.component';
@@ -50,7 +51,8 @@ const routes: Routes = [
       {path: 'admin/reviews', component: AdminReviewComponent},
       {path: 'admin/orders', component: AdminOrderComponent},
       {path: 'admin/orders/update/:id', component: AdminOrderUpdateComponent},
-      {path: 'admin/orders/export', component: AdminOrderExportComponent}
+      {path: 'admin/orders/export', component: AdminOrderExportComponent},
+      {path: 'admin/orders/stats', component: AdminOrderStatsComponent}
     ]
   }
 ];
