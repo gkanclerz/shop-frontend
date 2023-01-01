@@ -6,6 +6,8 @@ import jwt_decode from 'jwt-decode'
 })
 export class JwtService {
 
+  adminAccess = false;
+
   constructor() { }
 
   setToken(token: string){
@@ -19,6 +21,14 @@ export class JwtService {
   isLoggedIn(): boolean{
     let token = localStorage.getItem("token");
     return token != null && this.notExpired(token);
+  }
+
+  public setAdminAccess(adminAccess: boolean){
+    this.adminAccess = adminAccess
+  }
+
+  public getAdminAccess() : boolean{
+    return this.adminAccess;
   }
 
   private notExpired(token: string): boolean {
