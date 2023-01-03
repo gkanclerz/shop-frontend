@@ -24,6 +24,9 @@ import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGu
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { OrderComponent } from './modules/order/order.component';
+import { PasswordLostComponent } from './modules/password-lost/password-lost.component';
+import { PasswordResetAuthorizeGuard } from './modules/password-reset/guard/passwordResetAuthorizeGuard';
+import { PasswordResetComponent } from './modules/password-reset/password-reset.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
 import { ProfileComponent } from './modules/profile/profile.component';
@@ -42,7 +45,9 @@ const routes: Routes = [
   },
   {
     path:'', component: FullpageComponent, children: [
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path: 'passwordLost', component: PasswordLostComponent},
+      {path: 'passwordReset/:link', component: PasswordResetComponent, canActivate: [PasswordResetAuthorizeGuard]}
     ]
   },
   {

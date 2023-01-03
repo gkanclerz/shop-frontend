@@ -1,4 +1,4 @@
-<div fxLayout="row">
+<div fxLayout="row" fxLayoutGap="100px">
     <div fxFlex>
         <h2>Logowanie</h2>
         <form [formGroup]="loginForm" fxLayout="column" (submit)="login()" class="loginForm">
@@ -12,9 +12,12 @@
                 <input type="password" matInput formControlName="password">
             </mat-form-field>
             <button mat-flat-button color="primary">Zaloguj</button>
+            <br>
+            <span><a routerLink="/passwordLost">Zapomniałeś hasła?</a></span>
         </form>
     </div>
     <div fxFlex>
+        <h2>Rejestracja</h2>
         <form [formGroup]="registerForm" fxLayout="column" (submit)="register()" class="registerForm">
             <div *ngIf="registerError" class="error">{{registerErrorMessage}}</div>
             <mat-form-field appearance="fill">
