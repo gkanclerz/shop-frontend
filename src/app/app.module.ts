@@ -14,7 +14,6 @@ import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
 import { PasswordResetAuthorizeGuard } from './modules/password-reset/guard/passwordResetAuthorizeGuard';
-import { PasswordResetComponent } from './modules/password-reset/password-reset.component';
 
 @NgModule({
   declarations: [

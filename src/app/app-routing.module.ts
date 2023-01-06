@@ -23,6 +23,7 @@ import { CategoryComponent } from './modules/category/category.component';
 import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { OrderNotificationComponent } from './modules/order/order-notification/order-notification.component';
 import { OrderComponent } from './modules/order/order.component';
 import { PasswordLostComponent } from './modules/password-lost/password-lost.component';
 import { PasswordResetAuthorizeGuard } from './modules/password-reset/guard/passwordResetAuthorizeGuard';
@@ -40,6 +41,7 @@ const routes: Routes = [
       {path: 'categories/:slug', component: CategoryComponent},
       {path: 'cart', component: CartComponent},
       {path: 'order', component: OrderComponent},
+      {path: 'order/notification/:orderHash', component: OrderNotificationComponent},
       {path: 'profile', component: ProfileComponent, canActivate: [ProfileAuthorizeGuard]}
     ]
   },

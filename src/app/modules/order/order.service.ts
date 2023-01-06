@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CartSummary } from '../common/model/cart/cartSummary';
 import { CartCommonService } from '../common/service/cart-common.service';
 import { InitData } from './model/initData';
+import { NotificationDto } from './model/notificationDto';
 import { OrderDto } from './model/orderDto';
 import { OrderSummary } from './model/orderSummary';
 
@@ -27,6 +28,10 @@ export class OrderService {
 
   getInitData() : Observable<InitData> {
     return this.http.get<InitData>("/api/orders/initData")
+  }
+
+  getStatus(hash: string) : Observable<NotificationDto> {
+    return this.http.get<NotificationDto>("/api/orders/notification/" + hash)
   }
 
 }
